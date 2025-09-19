@@ -25,12 +25,10 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { processQuestionnaire } from "@/lib/actions";
 import { useState } from "react";
 
 export function QuestionnaireForm() {
   const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<QuestionnaireData>({
     resolver: zodResolver(QuestionnaireSchema),
@@ -43,24 +41,30 @@ export function QuestionnaireForm() {
     },
   });
 
-  async function onSubmit(data: QuestionnaireData) {
-    setIsSubmitting(true);
-    const result = await processQuestionnaire(data);
-    setIsSubmitting(false);
+  function formatQuestionnaireDataForEmail(data: QuestionnaireData): string {
+    let body = "New Questionnaire Submission:\n\n";
 
-    if (result.success) {
-      toast({
-        title: "Success!",
-        description: "Your submission has been received.",
-      });
-      form.reset();
-    } else {
-      toast({
-        title: "Error",
-        description: result.error || "Something went wrong.",
-        variant: "destructive",
-      });
-    }
+    body += `Role: ${data.role}\n`;
+    body += `Department: ${data.department}\n`;
+    body += `Main Tasks and Responsibilities: ${data.tasks}\n`;
+    body += `Biggest Pain Points or Bottlenecks: ${data.painPoints}\n`;
+    body += `Experience with AI Tools: ${data.aiExperience}\n`;
+
+    return body;
+  }
+
+  function onSubmit(data: QuestionnaireData) {
+    const subject = `Questionnaire Submission from ${data.role} (${data.department})`;
+    const body = formatQuestionnaireDataForEmail(data);
+    
+    const mailtoLink = `mailto:joe@tradieai.co.nz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.location.href = mailtoLink;
+
+    toast({
+      title: "Redirecting to Email Client",
+      description: "Please send the generated email to complete your submission.",
+    });
   }
 
   return (
@@ -147,8 +151,8 @@ export function QuestionnaireForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Submitting..." : "Submit"}
+        <Button type="submit">
+          Submit
         </Button>
       </form>
     </Form>
