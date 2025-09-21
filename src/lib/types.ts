@@ -99,6 +99,21 @@ export const QuestionnaireSchema= z.object({
 
 export type QuestionnaireData=z.infer<typeof QuestionnaireSchema>;
 
+// Use Case Data Structure
+export const UseCaseSchema = z.object({
+  title: z.string().min(1, "Title is required."),
+  department: z.string().min(1, "Department is required."),
+  summary: z.string().min(1, "Summary is required."),
+  task: z.string().min(1, "The task description is required."),
+  problem: z.string().min(1, "The problem description is required."),
+  solution: z.string().min(1, "The solution description is required."),
+  toolUsed: z.enum(['AI Agent', 'Background automation', '3rd party tool', 'other'], { required_error: "You need to select a tool type." }),
+  hoursSaved: z.coerce.number().positive({ message: "Must be a positive number." }).optional(),
+  setupComplexity: z.enum(['Easy', 'Medium', 'Hard'], { required_error: "You need to select a setup complexity." }),
+});
+
+export type UseCaseData = z.infer<typeof UseCaseSchema>;
+
 // Badge Data Structure
 export type Badge = {
   id: string;

@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
@@ -8,7 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { BarChart, Clock, Award, MessageSquareWarning, CheckCircle, Star, Bot, Clipboard, Mail, HelpCircle, PlusCircle, ExternalLink, BookOpen, BrainCircuit, Wrench, Lightbulb, Users } from 'lucide-react';
+import { BarChart, Clock, Award, MessageSquareWarning, CheckCircle, Star, Bot, Clipboard, Mail, HelpCircle, PlusCircle, ExternalLink, BookOpen, BrainCircuit, Wrench, Lightbulb, Users, FileSignature } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -20,10 +22,14 @@ import {
   DialogClose,
 } from "@/components/ui/dialog"
 import Link from 'next/link';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { useToast } from '@/hooks/use-toast';
 
 import { getOrCreateUserProfile } from '@/lib/firebase';
-import { UserProfile } from '@/lib/types';
+import { UserProfile, UseCaseSchema, type UseCaseData } from '@/lib/types';
 import { allBadges, getBadgeById } from '@/lib/badges';
+import { createUseCase } from '@/lib/actions';
 
 // Mock Data - In a real app, this would come from Firestore
 const userFavoritePrompts = [
@@ -35,6 +41,129 @@ const userFavoriteTools = [
     { id: 1, name: 'ChatGPT', description: 'General purpose brainstorming and text generation.', link: '/dashboard/tool-directory' },
     { id: 2, name: 'Zoom AI Companion', description: 'Summarizing meetings and finding action items.', link: '/dashboard/tool-directory' },
 ];
+
+function CreateUseCaseForm() {
+  const { toast } = useToast();
+  const [isOpen, setIsOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const form = useForm<UseCaseData>({
+    resolver: zodResolver(UseCaseSchema),
+    defaultValues: {
+      title: '',
+      department: '',
+      summary: '',
+      task: '',
+      problem: '',
+      solution: '',
+      toolUsed: undefined,
+      hoursSaved: undefined,
+      setupComplexity: undefined,
+    },
+  });
+
+  async function onSubmit(data: UseCaseData) {
+    setIsSubmitting(true);
+    const result = await createUseCase(data);
+    setIsSubmitting(false);
+
+    if (result.success) {
+      toast({
+        title: "Use Case Submitted!",
+        description: "Thank you for sharing how you're using AI.",
+      });
+      form.reset();
+      setIsOpen(false);
+    } else {
+      toast({
+        title: "Submission Failed",
+        description: result.error || "An unknown error occurred.",
+        variant: "destructive",
+      });
+    }
+  }
+
+  return (
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <DialogTrigger asChild>
+        <Button><FileSignature className="h-4 w-4 mr-2"/>Create New Use Case</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-2xl">
+        <DialogHeader>
+          <DialogTitle>Create a New Use Case</DialogTitle>
+          <DialogDescription>
+            Share a story of how you've successfully used AI. This will be shared with the rest of the organization.
+          </DialogDescription>
+        </DialogHeader>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 max-h-[70vh] overflow-y-auto pr-6">
+            <FormField control={form.control} name="title" render={({ field }) => (
+              <FormItem><FormLabel>Title</FormLabel><FormControl><Input placeholder="e.g., Automating Weekly Reports" {...field} /></FormControl><FormMessage /></FormItem>
+            )} />
+            <FormField control={form.control} name="department" render={({ field }) => (
+              <FormItem><FormLabel>Department</FormLabel><FormControl><Input placeholder="e.g., Operations" {...field} /></FormControl><FormMessage /></FormItem>
+            )} />
+            <FormField control={form.control} name="summary" render={({ field }) => (
+              <FormItem><FormLabel>Summary</FormLabel><FormControl><Textarea placeholder="A brief, one-sentence summary of the achievement." {...field} /></FormControl><FormMessage /></FormItem>
+            )} />
+            
+            <Separator />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <FormField control={form.control} name="toolUsed" render={({ field }) => (
+                <FormItem className="space-y-3">
+                  <FormLabel>Tool Used</FormLabel>
+                  <FormControl>
+                    <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="flex flex-col space-y-1">
+                      <FormItem className="flex items-center space-x-3 space-y-0"><FormControl><RadioGroupItem value="AI Agent" /></FormControl><FormLabel className="font-normal">AI Agent</FormLabel></FormItem>
+                      <FormItem className="flex items-center space-x-3 space-y-0"><FormControl><RadioGroupItem value="Background automation" /></FormControl><FormLabel className="font-normal">Background automation</FormLabel></FormItem>
+                      <FormItem className="flex items-center space-x-3 space-y-0"><FormControl><RadioGroupItem value="3rd party tool" /></FormControl><FormLabel className="font-normal">3rd party tool</FormLabel></FormItem>
+                      <FormItem className="flex items-center space-x-3 space-y-0"><FormControl><RadioGroupItem value="other" /></FormControl><FormLabel className="font-normal">Other</FormLabel></FormItem>
+                    </RadioGroup>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )} />
+              <FormField control={form.control} name="setupComplexity" render={({ field }) => (
+                <FormItem className="space-y-3">
+                  <FormLabel>Set Up Complexity</FormLabel>
+                  <FormControl>
+                    <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="flex flex-col space-y-1">
+                      <FormItem className="flex items-center space-x-3 space-y-0"><FormControl><RadioGroupItem value="Easy" /></FormControl><FormLabel className="font-normal">Easy</FormLabel></FormItem>
+                      <FormItem className="flex items-center space-x-3 space-y-0"><FormControl><RadioGroupItem value="Medium" /></FormControl><FormLabel className="font-normal">Medium</FormLabel></FormItem>
+                      <FormItem className="flex items-center space-x-3 space-y-0"><FormControl><RadioGroupItem value="Hard" /></FormControl><FormLabel className="font-normal">Hard</FormLabel></FormItem>
+                    </RadioGroup>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )} />
+            </div>
+
+            <FormField control={form.control} name="hoursSaved" render={({ field }) => (
+              <FormItem><FormLabel>Approx. Hours Saved Per Week</FormLabel><FormControl><Input type="number" placeholder="e.g., 4" {...field} /></FormControl><FormMessage /></FormItem>
+            )} />
+
+            <Separator />
+
+            <FormField control={form.control} name="task" render={({ field }) => (
+              <FormItem><FormLabel>The Task</FormLabel><FormControl><Textarea placeholder="What was the original task you needed to accomplish?" {...field} /></FormControl><FormMessage /></FormItem>
+            )} />
+            <FormField control={form.control} name="problem" render={({ field }) => (
+              <FormItem><FormLabel>The Problem</FormLabel><FormControl><Textarea placeholder="What made this task difficult, repetitive, or time-consuming?" {...field} /></FormControl><FormMessage /></FormItem>
+            )} />
+            <FormField control={form.control} name="solution" render={({ field }) => (
+              <FormItem><FormLabel>The Solution</FormLabel><FormControl><Textarea placeholder="How did you use AI to solve the problem? Which tool did you use?" {...field} /></FormControl><FormMessage /></FormItem>
+            )} />
+            <DialogFooter className="pt-4">
+              <DialogClose asChild><Button type="button" variant="secondary">Cancel</Button></DialogClose>
+              <Button type="submit" disabled={isSubmitting}>{isSubmitting ? 'Submitting...' : 'Submit Use Case'}</Button>
+            </DialogFooter>
+          </form>
+        </Form>
+      </DialogContent>
+    </Dialog>
+  );
+}
 
 export default function MyAiPage() {
   // State for the reporting form
@@ -152,49 +281,15 @@ export default function MyAiPage() {
         </div>
       </section>
 
-      {/* Next Steps Section */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-semibold text-center mb-8">What's Next?</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {userStats.reportsSubmitted === 0 && (
-            <Card className="flex flex-col items-center p-6 text-center">
-              <BrainCircuit className="h-12 w-12 text-cyan-500 mb-4" />
-              <CardTitle className="text-xl mb-2">Complete Your AI Audit</CardTitle>
-              <CardDescription className="mb-4">Help us understand your workflows and identify automation opportunities.</CardDescription>
-              <Link href="/dashboard/process-analyser"><Button>Start Audit</Button></Link>
-            </Card>
-          )}
-          {currentUserProfile?.earnedBadges.length === 0 && userStats.reportsSubmitted > 0 && (
-            <Card className="flex flex-col items-center p-6 text-center">
-              <Award className="h-12 w-12 text-yellow-500 mb-4" />
-              <CardTitle className="text-xl mb-2">Earn Your First Badge!</CardTitle>
-              <CardDescription className="mb-4">Keep exploring the AI Hub and submitting reports to unlock achievements.</CardDescription>
-              <Link href="/dashboard/ai-playbook"><Button>Learn More</Button></Link>
-            </Card>
-          )}
-          {userStats.totalHoursSaved < 10 && (
-            <Card className="flex flex-col items-center p-6 text-center">
-              <Clock className="h-12 w-12 text-green-500 mb-4" />
-              <CardTitle className="text-xl mb-2">Log More Hours Saved</CardTitle>
-              <CardDescription className="mb-4">Discover new AI tools and techniques to boost your productivity.</CardDescription>
-              <Link href="/dashboard/tool-directory"><Button>Explore Tools</Button></Link>
-            </Card>
-          )}
-          {/* Add more conditional recommendations here */}
-          {/* Example: If no training completed, suggest training */}
-          {/* Example: If few prompts saved, suggest prompt library */}
-        </div>
-      </section>
-
       {/* Main Content Area with Tabs */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         <div className="lg:col-span-2">
             <Tabs defaultValue="report">
-                <TabsList className="grid w-full grid-cols-4">
-                    <TabsTrigger value="report">Submit Report</TabsTrigger>
-                    <TabsTrigger value="prompts">My Prompts</TabsTrigger>
-                    <TabsTrigger value="tools">My Tools</TabsTrigger>
-                    <TabsTrigger value="notes">My Notes</TabsTrigger>
+                <TabsList className="grid h-auto w-full grid-cols-4 rounded-lg bg-lime-300 p-1">
+                    <TabsTrigger value="report" className="inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm">Submit Report</TabsTrigger>
+                    <TabsTrigger value="prompts" className="inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm">My Prompts</TabsTrigger>
+                    <TabsTrigger value="tools" className="inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm">My Tools</TabsTrigger>
+                    <TabsTrigger value="notes" className="inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm">My Notes</TabsTrigger>
                 </TabsList>
                 
                 {/* Submit Report Tab */}
@@ -294,6 +389,20 @@ export default function MyAiPage() {
             </Card>
         </div>
       </div>
+
+      {/* Share a Use Case Section */}
+      <section className="mt-12">
+        <Card className="text-center p-8 bg-muted/50">
+          <CardHeader className="p-0">
+            <FileSignature className="h-12 w-12 text-primary mx-auto mb-4" />
+            <CardTitle className="text-2xl">Share Your Success</CardTitle>
+          </CardHeader>
+          <CardContent className="p-0 mt-4">
+            <p className="text-muted-foreground max-w-xl mx-auto mb-6">Have you found a great way to use AI? Share it with the organization by creating a use case. Your findings will appear on the Use Cases page.</p>
+            <CreateUseCaseForm />
+          </CardContent>
+        </Card>
+      </section>
     </div>
   );
 }

@@ -630,7 +630,7 @@ export default function AiAuditPage() {
   return (
     <div className="py-8">
       <header className="text-center mb-8">
-          <h1 className="text-5xl md:text-4xl font-extrabold tracking-tight text-primary">Unlock Your Productivity with AI.</h1>
+          <h1 className="text-5xl md:text-5xl font-extrabold tracking-tight text-primary">Unlock Your Productivity with AI.</h1>
       </header>
 
       <section className="text-center mb-8">
@@ -646,34 +646,34 @@ export default function AiAuditPage() {
 
       <section className="mb-12">
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
-          <Card className="w-full md:w-1/3">
+          <Card className="w-full md:w-1/3 bg-gradient-to-br from-blue-500 to-blue-600 text-white">
             <CardHeader>
               <CardTitle>1. What Do You Do?</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-blue-100">
                 First, we get a clear picture of your daily operations and the key processes that drive your business.
               </p>
             </CardContent>
           </Card>
           <ArrowRight className="h-8 w-8 text-muted-foreground rotate-90 md:rotate-0" />
-          <Card className="w-full md:w-1/3">
+          <Card className="w-full md:w-1/3 bg-gradient-to-br from-purple-500 to-purple-600 text-white">
             <CardHeader>
               <CardTitle>2. What Are Your Pain Points?</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-purple-100">
                 Next, we pinpoint the bottlenecks, repetitive tasks, and areas where you feel the most friction.
               </p>
             </CardContent>
           </Card>
           <ArrowRight className="h-8 w-8 text-muted-foreground rotate-90 md:rotate-0" />
-          <Card className="w-full md:w-1/3">
+          <Card className="w-full md:w-1/3 bg-gradient-to-br from-teal-500 to-teal-600 text-white">
             <CardHeader>
               <CardTitle>3. Let's Start Building</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-teal-100">
                 Finally, we use this insight to design and build tailored AI solutions that directly address your needs.
               </p>
             </CardContent>

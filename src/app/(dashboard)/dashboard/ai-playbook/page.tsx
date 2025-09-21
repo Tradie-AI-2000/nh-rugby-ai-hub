@@ -112,26 +112,26 @@ export default function PlaybookPage() {
         <section className="mb-12">
             <Card className="p-8">
                 <CardHeader className="text-center">
-                    <CardTitle className="text-2xl">Our Core Principles</CardTitle>
+                    <CardTitle className="text-4xl">Our Core Principles</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <div className="grid md:grid-cols-4 gap-8 text-center">
-                        <div className="flex flex-col items-center">
+                        <div className="flex flex-col items-center border border-slate-200 dark:border-slate-800 rounded-lg p-4 h-full">
                             <ShieldCheck className="h-10 w-10 text-green-500 mb-2" />
                             <h3 className="font-semibold text-lg">Enhance, Don't Replace</h3>
                             <p className="text-muted-foreground">AI is a tool to augment your skills and creativity, not to replace human judgment.</p>
                         </div>
-                         <div className="flex flex-col items-center">
+                         <div className="flex flex-col items-center border border-slate-200 dark:border-slate-800 rounded-lg p-4 h-full">
                             <Brain className="h-10 w-10 text-blue-500 mb-2" />
                             <h3 className="font-semibold text-lg">Be Human-Centric</h3>
                             <p className="text-muted-foreground">Focus on how AI can solve real-world problems for our customers and our team.</p>
                         </div>
-                        <div className="flex flex-col items-center">
+                        <div className="flex flex-col items-center border border-slate-200 dark:border-slate-800 rounded-lg p-4 h-full">
                             <ShieldAlert className="h-10 w-10 text-yellow-500 mb-2" />
                             <h3 className="font-semibold text-lg">Security First</h3>
                             <p className="text-muted-foreground">Protecting company, client, and employee data is our top priority.</p>
                         </div>
-                        <div className="flex flex-col items-center">
+                        <div className="flex flex-col items-center border border-slate-200 dark:border-slate-800 rounded-lg p-4 h-full">
                             <ShieldX className="h-10 w-10 text-red-500 mb-2" />
                             <h3 className="font-semibold text-lg">Accountability Matters</h3>
                             <p className="text-muted-foreground">You are ultimately responsible for the final output and accuracy of any work produced with AI.</p>

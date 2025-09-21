@@ -29,7 +29,7 @@ const toolData = [
       risk: 'Medium',
       description: 'Multi-modal AI for creative text generation, data analysis, and complex reasoning.',
       icon: <Sparkles className="h-6 w-6 text-blue-500" />,
-      logo: "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/IO24_WhatsInAName_SocialShare_S96SOzG.width-1300.png",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThr7qrIazsvZwJuw-uZCtLzIjaAyVW_ZrlEQ&s",
       logoBg: 'bg-blue-100',
       url: 'https://gemini.google.com/',
       color: 'blue'
@@ -40,7 +40,7 @@ const toolData = [
       risk: 'Medium',
       description: 'Strong focus on safety and constitutional AI, excellent for detailed conversations.',
       icon: <Handshake className="h-6 w-6 text-orange-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/claude-logo.png",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtUnGYPe67wuzVDjTujZ21UV38Y6KQ290fow&s",
       logoBg: 'bg-orange-100',
       url: 'https://claude.ai/',
       color: 'orange'
@@ -51,7 +51,7 @@ const toolData = [
       risk: 'Low',
       description: 'A conversational search engine that provides cited, accurate answers from the web.',
       icon: <Search className="h-6 w-6 text-green-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/perplexity-logo.png",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUe1maR_3OkMtDx_HDz12ceQl0KRqz_V0blw&s",
       logoBg: 'bg-green-100',
       url: 'https://www.perplexity.ai/',
       color: 'green'
@@ -63,7 +63,7 @@ const toolData = [
       risk: 'Low',
       description: 'AI-powered copywriter for generating marketing copy, blog posts, and social media content.',
       icon: <PenSquare className="h-6 w-6 text-pink-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/jasper-logo.png",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtIEAy3SIODOrIC19eImxidbJWt04IH5jTRg&s",
       logoBg: 'bg-pink-100',
       url: 'https://www.jasper.ai/',
       color: 'pink'
@@ -74,7 +74,7 @@ const toolData = [
       risk: 'Low',
       description: 'AI copywriter for generating high-quality marketing copy and content ideas.',
       icon: <PenSquare className="h-6 w-6 text-pink-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/copyai-logo.png",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPv9c8aiPZFldR27UoUGJ1e365Lran0iBrhA&s",
       logoBg: 'bg-indigo-100',
       url: 'https://www.copy.ai/',
       color: 'pink'
@@ -85,7 +85,7 @@ const toolData = [
       risk: 'Low',
       description: 'AI text generator integrated within the Canva design suite for social media graphics.',
       icon: <PenSquare className="h-6 w-6 text-pink-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/canva-logo.png",
+      logo: "https://www.vhv.rs/dpng/d/275-2756337_canva-logo-logo-canva-hd-png-download.png",
       logoBg: 'bg-violet-100',
       url: 'https://www.canva.com/magic-write/',
       color: 'pink'
@@ -97,7 +97,7 @@ const toolData = [
       risk: 'Low',
       description: 'AI for CRM to uncover insights, predict outcomes, and suggest next steps.',
       icon: <BarChart className="h-6 w-6 text-red-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/einstein-logo.png",
+      logo: "https://www.sparkplug.ai/wp-content/uploads/2023/10/salesforce-logo.png",
       logoBg: 'bg-sky-100',
       url: 'https://www.salesforce.com/products/einstein/',
       color: 'red'
@@ -108,7 +108,7 @@ const toolData = [
       risk: 'Medium',
       description: 'Conversation intelligence platform that records and analyzes sales calls for insights.',
       icon: <BarChart className="h-6 w-6 text-red-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/gong-logo.png",
+      logo: "https://cdn.prod.website-files.com/61d72a2cda50bcf02928767c/689fc172b2191b278b74450e_Gong_idnaeh32xQ_1.png",
       logoBg: 'bg-teal-100',
       url: 'https://www.gong.io/',
       color: 'red'
@@ -119,7 +119,7 @@ const toolData = [
       risk: 'Low',
       description: 'Summarizes meetings, identifies action items, and helps draft follow-up emails.',
       icon: <BarChart className="h-6 w-6 text-red-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/zoom-logo.png",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuB79MjNSFlE0-cyrc_pjYnXv7PcnM4EGXSw&s",
       logoBg: 'bg-blue-200',
       url: 'https://zoom.us/ai-companion',
       color: 'red'
@@ -131,7 +131,7 @@ const toolData = [
       risk: 'Low',
       description: 'AI assistant integrated into Microsoft Office apps to draft documents, summarize emails, and more.',
       icon: <Briefcase className="h-6 w-6 text-indigo-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/copilot-logo.png",
+      logo: "https://amblik.ee/wp-content/uploads/2024/09/Copilot-Logo.png",
       logoBg: 'bg-blue-100',
       url: 'https://www.microsoft.com/en-us/microsoft-365/copilot-for-work',
       color: 'indigo'
@@ -142,7 +142,7 @@ const toolData = [
       risk: 'Low',
       description: 'Helps organize notes, summarize documents, and draft content directly within Notion.',
       icon: <Briefcase className="h-6 w-6 text-indigo-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/notion-logo.png",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Notion-logo.svg/1024px-Notion-logo.svg.png",
       logoBg: 'bg-gray-200',
       url: 'https://www.notion.so/product/ai',
       color: 'indigo'
@@ -153,7 +153,7 @@ const toolData = [
       risk: 'Low',
       description: 'AI-powered writing assistant for checking grammar, spelling, and tone.',
       icon: <Briefcase className="h-6 w-6 text-indigo-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/grammarly-logo.png",
+      logo: "https://cdn.worldvectorlogo.com/logos/grammarly-1.svg",
       logoBg: 'bg-emerald-100',
       url: 'https://www.grammarly.com/',
       color: 'indigo'
@@ -165,7 +165,7 @@ const toolData = [
       risk: 'Low',
       description: 'Provides automated responses, summarizes tickets, and assists support agents.',
       icon: <MessageSquare className="h-6 w-6 text-cyan-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/zendesk-logo.png",
+      logo: "https://logos-world.net/wp-content/uploads/2021/06/Zendesk-Logo.png",
       logoBg: 'bg-green-100',
       url: 'https://www.zendesk.com/service/ai/',
       color: 'cyan'
@@ -176,7 +176,7 @@ const toolData = [
       risk: 'Medium',
       description: 'An AI chatbot built to resolve complex customer issues and integrate with your knowledge base.',
       icon: <MessageSquare className="h-6 w-6 text-cyan-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/intercom-logo.png",
+      logo: "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/174_Intercom_logo_logos-512.png",
       logoBg: 'bg-blue-100',
       url: 'https://www.intercom.com/fin',
       color: 'cyan'
@@ -187,7 +187,7 @@ const toolData = [
       risk: 'Medium',
       description: 'An AI-powered platform for building automated customer service chatbots.',
       icon: <MessageSquare className="h-6 w-6 text-cyan-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/ada-logo.png",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGAV4PJ056CCYQfWMMdR8_i-QCGCw997UCgQ&s",
       logoBg: 'bg-teal-100',
       url: 'https://www.ada.cx/',
       color: 'cyan'
@@ -199,7 +199,7 @@ const toolData = [
       risk: 'Low',
       description: 'AI research assistant that can find papers, extract data, and synthesize findings.',
       icon: <Library className="h-6 w-6 text-lime-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/elicit-logo.png",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMc-NJRAgWYAys9JWMjVPAGn-py_z3LOzaEw&s",
       logoBg: 'bg-orange-100',
       url: 'https://elicit.com/',
       color: 'lime'
@@ -210,7 +210,7 @@ const toolData = [
       risk: 'Low',
       description: 'Helps discover and evaluate scientific articles through "smart citations".',
       icon: <Library className="h-6 w-6 text-lime-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/scite-logo.png",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrrKSABNsRNpsB5wu_ge863j8ixTCcAVlxZA&s",
       logoBg: 'bg-blue-100',
       url: 'https://scite.ai/',
       color: 'lime'
@@ -221,7 +221,7 @@ const toolData = [
       risk: 'Low',
       description: 'An AI-powered search engine that extracts findings directly from scientific research.',
       icon: <Library className="h-6 w-6 text-lime-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/consensus-logo.png",
+      logo: "https://logosandtypes.com/wp-content/uploads/2025/04/Consensus-scaled.png",
       logoBg: 'bg-indigo-100',
       url: 'https://consensus.app/',
       color: 'lime'
@@ -233,7 +233,7 @@ const toolData = [
       risk: 'Low',
       description: 'AI-powered analytics to create interactive data visualizations and dashboards.',
       icon: <FileText className="h-6 w-6 text-gray-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/tableau-logo.png",
+      logo: "https://logos-world.net/wp-content/uploads/2021/10/Tableau-Symbol.png",
       logoBg: 'bg-blue-100',
       url: 'https://www.tableau.com/',
       color: 'gray'
@@ -244,7 +244,7 @@ const toolData = [
       risk: 'Low',
       description: 'Business analytics service for creating reports and dashboards with AI features.',
       icon: <FileText className="h-6 w-6 text-gray-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/powerbi-logo.png",
+      logo: "https://1000logos.net/wp-content/uploads/2022/12/Power-BI-Logo-2013-2048x1152.png",
       logoBg: 'bg-yellow-100',
       url: 'https://powerbi.microsoft.com/',
       color: 'gray'
@@ -255,7 +255,7 @@ const toolData = [
       risk: 'Medium',
       description: 'Turns spreadsheets into a powerful, searchable, and interactive database with AI.',
       icon: <FileText className="h-6 w-6 text-gray-500" />,
-      logo: "https://d2i4l4jrdru1k6.cloudfront.net/logos/polymer-logo.png",
+      logo: "https://cdn.freebiesupply.com/logos/large/2x/polymer-logo-png-transparent.png",
       logoBg: 'bg-violet-100',
       url: 'https://www.polymersearch.com/',
       color: 'gray'
@@ -312,13 +312,13 @@ export default function ToolDirectoryPage() {
                 <CardContent className="flex-grow">
                     <p>Build your own custom versions of ChatGPT, trained on your specific documents and data. Create powerful, personalized assistants for any task without writing a single line of code.</p>
                 </CardContent>
-                <CardDescription className="p-6 pt-0">
+                <CardFooter className="p-6 pt-0">
                     <a href="/dashboard/tool-directory/custom-gpts/chatgpt">
                         <Button variant="secondary" className="w-full">
                             See Details <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                     </a>
-                </CardDescription>
+                </CardFooter>
             </Card>
 
             {/* Gemini Card */}
@@ -330,13 +330,13 @@ export default function ToolDirectoryPage() {
                 <CardContent className="flex-grow">
                     <p>Develop custom 'Gems' with Google Gemini. These specialized AI agents can perform complex, multi-step tasks and can be tailored to your team's unique workflows and knowledge bases.</p>
                 </CardContent>
-                <CardDescription className="p-6 pt-0">
+                <CardFooter className="p-6 pt-0">
                      <a href="/dashboard/tool-directory/custom-gpts/gemini">
                         <Button variant="secondary" className="w-full">
                             See Details <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                     </a>
-                </CardDescription>
+                </CardFooter>
             </Card>
         </div>
       </section>
@@ -355,43 +355,44 @@ export default function ToolDirectoryPage() {
               <h3 className="text-3xl font-bold tracking-tight text-primary pb-4 mb-8 border-b-2 border-primary/10">{category}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {tools.map(tool => (
-                  tool.logo ? (
-                     <Card key={tool.name} className="flex flex-col overflow-hidden transition-all duration-200 hover:shadow-xl hover:-translate-y-1">
-                        <div className={cn("flex items-center justify-center p-8 h-40", tool.logoBg)}>
-                           <Image src={tool.logo} alt={`${tool.name} Logo`} width={150} height={150} className="object-contain" />
+                  <Card key={tool.name} className="flex flex-col overflow-hidden transition-all duration-200 hover:shadow-xl hover:-translate-y-1 border-gray-300">
+                    <CardHeader className={cn("flex flex-row items-center gap-4 p-4", tool.logoBg)}>
+                        <div className="bg-white rounded-full p-1 h-12 w-12 flex items-center justify-center shadow-sm shrink-0">
+                            <Image 
+                                src={tool.logo} 
+                                alt={`${tool.name} Logo`} 
+                                width={36} 
+                                height={36} 
+                                className="object-contain" 
+                            />
                         </div>
-                        <CardContent className="p-4 flex-grow flex flex-col text-center">
-                          <CardTitle className="text-xl mb-2">{tool.name}</CardTitle>
-                          <p className="text-muted-foreground text-sm flex-grow">{tool.description}</p>
-                        </CardContent>
-                        <CardFooter className="p-4 flex justify-between items-center">
-                          <Badge variant={tool.risk === 'Low' ? 'default' : tool.risk === 'Medium' ? 'outline' : 'destructive'} className={tool.risk === 'Low' ? 'bg-green-100 text-green-800' : tool.risk === 'Medium' ? 'bg-yellow-100 text-yellow-800' : 'bg-red-100 text-red-800'}>{tool.risk} Risk</Badge>
-                          <a href={tool.url} target="_blank" rel="noopener noreferrer">
-                            <Button variant="outline" size="sm">Go to Page</Button>
-                          </a>
-                        </CardFooter>
-                    </Card>
-                  ) : (
-                  <Card key={tool.name} className="flex flex-col transition-all duration-200 hover:shadow-xl hover:-translate-y-1 hover:border-primary/50">
-                     <CardHeader className="flex-grow">
-                        <div className="flex justify-between items-start">
-                             <div className="flex items-center gap-4">
-                                {tool.icon}
-                                <CardTitle className="text-xl">{tool.name}</CardTitle>
-                             </div>
-                             <Badge variant={tool.risk === 'Low' ? 'default' : tool.risk === 'Medium' ? 'outline' : 'destructive'} className={tool.risk === 'Low' ? 'bg-green-100 text-green-800' : tool.risk === 'Medium' ? 'bg-yellow-100 text-yellow-800' : 'bg-red-100 text-red-800'}>{tool.risk} Risk</Badge>
-                        </div>
+                        <CardTitle className="text-xl font-bold text-black">{tool.name}</CardTitle>
                     </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">{tool.description}</p>
+                    
+                    <CardContent className="p-6 bg-white flex-grow">
+                        <p className="text-gray-600 text-base">{tool.description}</p>
                     </CardContent>
-                     <CardFooter className="p-4 flex justify-end">
-                      <a href={tool.url} target="_blank" rel="noopener noreferrer">
-                        <Button variant="outline" size="sm">Go to Page</Button>
-                      </a>
+                    
+                    <CardFooter className="bg-white p-4 flex justify-between items-center border-t">
+                         <Badge 
+                            variant={tool.risk === 'Low' ? 'default' : tool.risk === 'Medium' ? 'outline' : 'destructive'}
+                            className={
+                                tool.risk === 'Low' 
+                                ? 'bg-green-100 text-green-800 font-semibold border-green-200'
+                                : tool.risk === 'Medium' 
+                                ? 'bg-yellow-100 text-yellow-800 font-semibold border-yellow-200'
+                                : 'bg-red-100 text-red-800 font-semibold border-red-200'
+                            }
+                        >
+                            {tool.risk.toUpperCase()} RISK
+                        </Badge>
+                        <a href={tool.url} target="_blank" rel="noopener noreferrer">
+                            <Button variant="outline" size="sm" className="font-semibold">
+                                GO TO PAGE
+                            </Button>
+                        </a>
                     </CardFooter>
                   </Card>
-                  )
                 ))}
               </div>
             </div>

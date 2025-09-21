@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { BookOpen, Wrench, Lightbulb, User, CheckCircle, Star, BrainCircuit, GraduationCap } from 'lucide-react';
+import { BookOpen, Wrench, Lightbulb, User, CheckCircle, Star, BrainCircuit, GraduationCap, BotIcon, ChartBarIcon } from 'lucide-react';
 
 // Mock user data - in a real app, this would come from an authentication context
 const userName = "Carey"; // Placeholder for the logged-in user's name
@@ -20,7 +20,19 @@ const toolkitCards = [
         icon: <BrainCircuit className="h-8 w-8 text-cyan-500" />,
         title: "AI Audit",
         description: "The starting point of our journey. This questionnaire helps us identify key automation opportunities in your daily workflows.",
-        href: "/dashboard",
+        href: "/dashboard/process-analyser",
+    },
+    {
+        icon: <BotIcon className="h-8 w-8 text-cyan-500" />,
+        title: "My Agents",
+        description: "Your personal library of custom AI agents, ready to automate your tasks.",
+        href: "/dashboard/my-agents",
+    },
+    {
+        icon: <ChartBarIcon className="h-8 w-8 text-indigo-500" />,
+        title: "Chatbot",
+        description: "Your personal AI companion for quick answers and assistance.",
+        href: "/dashboard/chatbot",
     },
     {
         icon: <BookOpen className="h-8 w-8 text-blue-500" />,
@@ -58,6 +70,7 @@ const toolkitCards = [
         description: "The high-level management view of our AI roadmap, budget, and key performance indicators (for authorized users).",
         href: "/dashboard/ai-strategy",
     },
+    
 ];
 
 
@@ -120,7 +133,7 @@ export default function DashboardWelcomePage() {
                     </p>
                 </CardContent>
                 <div className="p-6 pt-0">
-                     <a href="/dashboard/my-ai">
+                     <a href="/dashboard/your-ai-report">
                         <Button>Go to My AI Hub</Button>
                     </a>
                 </div>

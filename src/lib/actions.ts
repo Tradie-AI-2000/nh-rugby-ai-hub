@@ -2,7 +2,7 @@
 
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db, getOrCreateUserProfile, updateUserProfile } from "./firebase";
-import { QuestionnaireSchema, type QuestionnaireData } from "./types";
+import { QuestionnaireSchema, type QuestionnaireData, UseCaseSchema, type UseCaseData } from "./types";
 import { allBadges } from "./badges";
 
 export async function processQuestionnaire(data: QuestionnaireData) {
@@ -70,6 +70,35 @@ export async function getSubmissions() {
     return {
       success: false,
       error: "Failed to fetch submissions.",
+    };
+  }
+}
+
+export async function createUseCase(data: UseCaseData) {
+  'use server';
+
+  const validation = UseCaseSchema.safeParse(data);
+
+  if (!validation.success) {
+    return {
+      success: false,
+      error: "Invalid data provided.",
+    };
+  }
+
+  try {
+    const useCaseCollection = collection(db, 'use-cases');
+    await addDoc(useCaseCollection, {
+      ...validation.data,
+      createdAt: new Date(),
+    });
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error creating use case:", error);
+    return {
+      success: false,
+      error: "Failed to save the use case to the database.",
     };
   }
 }
