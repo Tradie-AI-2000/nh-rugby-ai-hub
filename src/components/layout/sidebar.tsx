@@ -5,6 +5,8 @@ import { Logo } from '@/components/logo';
 
 const navItems = [
   { href: '/dashboard', icon: Home, label: 'Home' },
+  { href: '/dashboard/ai-strategy', icon: Bot, label: 'AI Strategy' },
+  { href: '/dashboard/process-analyser', icon: BarChart, label: 'AI Audit' },
   { href: '/dashboard/your-ai-report', icon: FileText, label: 'My AI' },
   { href: '/dashboard/my-agents', icon: Bot, label: 'My Agents' },
   { href: '/dashboard/my-automations', icon: Bot, label: 'My Automations' },
@@ -13,8 +15,6 @@ const navItems = [
   { href: '/dashboard/prompt-library', icon: Library, label: 'Prompt Library' },
   { href: '/dashboard/use-cases', icon: Briefcase, label: 'Use Cases' },
   { href: '/dashboard/tool-directory', icon: HardHat, label: 'Tool Directory' },
-  { href: '/dashboard/ai-strategy', icon: Bot, label: 'AI Strategy' },
-  { href: '/dashboard/process-analyser', icon: BarChart, label: 'Process Analyser' },
   { href: '/dashboard/chatbot', icon: MessageSquare, label: 'Chatbot' },
   
   
@@ -29,6 +29,11 @@ export function Sidebar() {
         <Logo />
       </div>
       <nav className="mt-8">
+        <div className="px-3 py-2">
+          <h4 className="text-2xl font-extrabold tracking-tight text-gradient">
+            AI Intelligence Hub
+          </h4>
+        </div>
         <ul>
           {navItems.map((item) => (
             <li key={item.href}>

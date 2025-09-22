@@ -173,7 +173,7 @@ export default function UseCasesPage() {
   return (
     <div className="py-8">
       <header className="text-center mb-12">
-        <h1 className="text-5xl font-extrabold tracking-tight text-primary">Use Cases</h1>
+        <h1 className="text-5xl font-extrabold tracking-tight text-gradient">Use Cases</h1>
         <p className="mt-4 text-lg text-muted-foreground">
           Discover how teams at d3 are leveraging AI for success.
         </p>

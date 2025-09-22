@@ -290,7 +290,7 @@ export default function ToolDirectoryPage() {
   return (
     <div className="py-8">
       <header className="text-center mb-12">
-        <h1 className="text-5xl font-extrabold tracking-tight text-primary">Approved AI Tool Directory</h1>
+        <h1 className="text-5xl font-extrabold tracking-tight text-gradient">Approved AI Tool Directory</h1>
         <p className="mt-4 text-lg text-muted-foreground">
             A curated list of AI tools vetted for safety, security, and effectiveness.
         </p>

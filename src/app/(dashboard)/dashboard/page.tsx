@@ -99,7 +99,7 @@ export default function DashboardWelcomePage() {
         {/* Getting Started Section */}
         <section>
             <div className="text-center mb-12">
-                <h2 className="text-3xl font-semibold text-gray-900">Your AI Toolkit</h2>
+                <h1 className="text-5xl font-extrabold tracking-tight text-gradient">Your AI Toolkit</h1>
                 <p className="mt-2 text-gray-600">An overview of the resources available to you.</p>
             </div>
             

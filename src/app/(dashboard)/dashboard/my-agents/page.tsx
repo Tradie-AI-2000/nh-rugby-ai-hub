@@ -45,8 +45,8 @@ export default function MyAgentsPage() {
   return (
     <div className="py-8">
       <header className="mb-12 text-center">
-        <h1 className="text-5xl font-extrabold tracking-tight text-primary">My Agents</h1>
-        <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+        <h1 className="text-5xl font-extrabold tracking-tight text-gradient">My Agents</h1>
+        <p className="mt-5 text-lg text-muted-foreground max-w-3xl mx-auto">
           Your personal library of custom AI agents, ready to automate your tasks.
         </p>
       </header>

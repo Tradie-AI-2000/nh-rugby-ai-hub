@@ -55,3 +55,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+.text-gradient {
+  /* The custom gradient effect */
+  background: linear-gradient(
+    to right, 
+    #4285F4, /* Google Blue */
+    #9B72CB, /* Gemini Purple */
+    #D96570, /* Gemini Pink/Red */
+    #F2A60C  /* Google Yellow/Orange */
+  ) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}

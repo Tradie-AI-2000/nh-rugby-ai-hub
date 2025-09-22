@@ -218,7 +218,7 @@ export default function MyAiPage() {
   return (
     <div className="py-8">
       <header className="mb-12 text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-primary">My AI Hub</h1>
+        <h1 className="text-5xl font-extrabold tracking-tight text-gradient">My AI Hub</h1>
         <p className="mt-4 text-lg text-muted-foreground">
           Your personal dashboard to track progress, save favorites, and get support.
         </p>

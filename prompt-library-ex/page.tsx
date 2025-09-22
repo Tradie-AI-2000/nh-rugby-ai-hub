@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription }
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import Image from 'next/image';
 import Link from 'next/link';
 
 
@@ -23,13 +24,13 @@ interface PromptsByLevel {
   Advanced: Prompt[];
 }
 
-// Mock data for prompts, tailored to d3 and structured by level
+// Mock data for prompts, tailored to Wilson Consumer Products and structured by level
 const promptLibrary: Record<string, PromptsByLevel> = {
   'Sales & Outreach': {
     Basic: [
       {
         title: 'New Supermarket Lead Email',
-        prompt: 'Draft a professional and concise introductory email to a category manager at a New Zealand supermarket we don\'t currently supply. Introduce d3, highlight our key product categories (health, beauty, and grocery), and suggest a brief 15-minute call next week to discuss how our range could benefit their stores.',
+        prompt: 'Draft a professional and concise introductory email to a category manager at a New Zealand supermarket we don\'t currently supply. Introduce Wilson Consumer Products, highlight our key product categories (health, beauty, and grocery), and suggest a brief 15-minute call next week to discuss how our range could benefit their stores.',
         roles: ['Field Sales Reps', 'Sales Manager'],
         icon: <Mail className="h-8 w-8 text-blue-500" />,
       },
@@ -45,7 +46,7 @@ const promptLibrary: Record<string, PromptsByLevel> = {
     Advanced: [
         {
         title: 'Generate Dynamic Sales Script',
-        prompt: 'You are a sales coach for d3. Below is our latest product sheet and a summary of our brand voice. [PASTE PRODUCT INFO & BRAND VOICE]. Now, create a flexible sales conversation script for our Field Sales Reps to introduce this new product. The script should include an engaging opener, 3 key benefit-driven talking points, and 3 different ways to handle potential objections (e.g., \'It\'s too expensive,\', \'We already have a similar product\').',
+        prompt: 'You are a sales coach for Wilson Consumer Products. Below is our latest product sheet and a summary of our brand voice. [PASTE PRODUCT INFO & BRAND VOICE]. Now, create a flexible sales conversation script for our Field Sales Reps to introduce this new product. The script should include an engaging opener, 3 key benefit-driven talking points, and 3 different ways to handle potential objections (e.g., "It\\\'s too expensive," "We already have a similar product").',
         roles: ['Sales Manager', 'GMs'],
         icon: <Mic className="h-8 w-8 text-orange-500" />,
       },
@@ -89,7 +90,7 @@ const promptLibrary: Record<string, PromptsByLevel> = {
     Intermediate: [
       {
         title: 'Blog Post Outline',
-        prompt: 'Create a detailed outline for a blog post with the title: \'5 Health Food Trends to Watch in New Zealand this Year\'. Include an introduction, a section for each trend with 2-3 talking points, and a conclusion that subtly promotes relevant d3 products.',
+        prompt: 'Create a detailed outline for a blog post with the title: "5 Health Food Trends to Watch in New Zealand this Year". Include an introduction, a section for each trend with 2-3 talking points, and a conclusion that subtly promotes relevant Wilson Consumer Products.',
         roles: ['Marketing Manager'],
         icon: <Bot className="h-8 w-8 text-indigo-500" />,
       },
@@ -97,7 +98,7 @@ const promptLibrary: Record<string, PromptsByLevel> = {
     Advanced: [
        {
         title: 'Generate Multi-Channel Campaign',
-        prompt: 'Using the provided brand guidelines and product one-pager [PASTE CONTEXT HERE], act as our marketing agency. Develop a comprehensive launch campaign for our new \'Kiwi Berry Bliss\' snack bars. The campaign is called \'Your Daily Dose of Delicious\'. Provide the following: 1. A 3-week content calendar for Instagram. 2. Copy for two targeted Facebook ads (one for parents, one for fitness enthusiasts). 3. The script for a 30-second radio ad.',
+        prompt: 'Using the provided brand guidelines and product one-pager [PASTE CONTEXT HERE], act as our marketing agency. Develop a comprehensive launch campaign for our new "Kiwi Berry Bliss" snack bars. The campaign is called "Your Daily Dose of Delicious". Provide the following: 1. A 3-week content calendar for Instagram. 2. Copy for two targeted Facebook ads (one for parents, one for fitness enthusiasts). 3. The script for a 30-second radio ad.',
         roles: ['Marketing Manager'],
         icon: <Bot className="h-8 w-8 text-pink-500" />,
       },
@@ -112,9 +113,11 @@ const useCopy = () => {
 
     const handleCopy = async (text: string, id: string) => {
         try {
+            // Use the modern clipboard API
             await navigator.clipboard.writeText(text);
         } catch (err) {
             console.error('Failed to copy with navigator.clipboard:', err);
+            // Fallback for non-secure contexts or when permissions are denied
             const textArea = document.createElement("textarea");
             textArea.value = text;
             textArea.style.position = "absolute";
@@ -144,8 +147,18 @@ export default function PromptLibraryPage() {
 
   return (
     <div className="py-8">
+      <section className="mb-12">
+        <Image
+          src="https://stellarlibrary.com/wp-content/uploads/Success-Story-FMCG-Wilsons-1024x341.jpg"
+          alt="Wilson Consumer Products promotional banner"
+          width={1024}
+          height={341}
+          className="w-full h-auto rounded-lg object-cover"
+        />
+      </section>
+      
       <header className="mb-12 text-center">
-        <h1 className="text-5xl font-extrabold tracking-tight text-gradient">Prompt Library</h1>
+        <h1 className="text-5xl font-extrabold tracking-tight text-primary">Prompt Library</h1>
         <p className="mt-4 text-lg text-muted-foreground">
           Copy and paste these tailored prompts to get better results from your AI tools.
         </p>
@@ -167,7 +180,7 @@ export default function PromptLibraryPage() {
               <p className="text-muted-foreground">Learn the three key ingredients of any great prompt: Task, Context, and Persona. Master these to get reliable results every time.</p>
             </CardContent>
             <CardFooter>
-              <Link href="/dashboard/prompt-library/basic" className="w-full">
+              <Link href="/dashboard/prompt-library/basic-prompting" className="w-full">
                 <Button className="w-full">
                   Go to Tutorial <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -183,7 +196,7 @@ export default function PromptLibraryPage() {
               <p className="text-muted-foreground">Explore techniques like "Few-Shot" and "Chain-of-Thought" prompting to guide the AI toward more accurate and structured answers.</p>
             </CardContent>
             <CardFooter>
-              <Link href="/dashboard/prompt-library/intermediate" className="w-full">
+              <Link href="/dashboard/prompt-library/intermediate-prompting" className="w-full">
                 <Button className="w-full">
                   Go to Tutorial <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -199,7 +212,7 @@ export default function PromptLibraryPage() {
                <p className="text-muted-foreground">Understand how to provide large amounts of custom data to the AI so it can act as a true expert on your business and processes.</p>
             </CardContent>
             <CardFooter>
-              <Link href="/dashboard/prompt-library/advanced" className="w-full">
+              <Link href="/dashboard/prompt-library/advanced-prompting" className="w-full">
                 <Button className="w-full">
                   Go to Tutorial <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>

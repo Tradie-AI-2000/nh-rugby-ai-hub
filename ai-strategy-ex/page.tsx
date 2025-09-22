@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { Target, Zap, Users, BarChart, Milestone, Flag, CheckCircle, MessageSquareQuote, PiggyBank, DollarSign, BrainCircuit, Calendar, TrendingUp, Loader2, Circle } from 'lucide-react';
+import { Target, Zap, Users, BarChart, Milestone, Flag, CheckCircle, MessageSquareQuote, PiggyBank, DollarSign, BrainCircuit, Calendar, TrendingUp } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
@@ -10,20 +10,22 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import Image from 'next/image';
+
 
 // Mock Data for Roadmap
 const roadmapPhases = [
   {
-    phase: 'Phase 1: Discovery & Upskilling (Months 1-3)',
+    phase: 'Phase 1: Foundation & Upskilling (Q4 2025)',
     icon: <Flag className="h-6 w-6 text-blue-500" />,
     initiatives: [
-      { title: 'Initial Process Audit', description: 'Complete the AI Audit questionnaire with Sales and Marketing departments.', status: 'In Progress' },
-      { title: 'Baseline Training', description: 'All employees to complete "Basic Prompting" and "AI Fundamentals" training modules.', status: 'In Progress' },
       { title: 'Portal Launch', description: 'Deploy the AI Transformation Portal with initial resources (Playbook, Tool Directory).', status: 'Completed' },
+      { title: 'Baseline Training', description: 'All employees to complete "Basic Prompting" and "AI Fundamentals" training modules.', status: 'In Progress' },
+      { title: 'Initial Process Audit', description: 'Complete the AI Audit questionnaire with Sales and Marketing departments.', status: 'Not Started' },
     ],
   },
   {
-    phase: 'Phase 2: Automation & Integration (Months 4-6)',
+    phase: 'Phase 2: Automation & Integration (Q1 2026)',
     icon: <Milestone className="h-6 w-6 text-purple-500" />,
     initiatives: [
       { title: 'Pilot Automation Project', description: 'Develop the first AI agent to automate sales report summaries.', status: 'Not Started' },
@@ -31,22 +33,13 @@ const roadmapPhases = [
       { title: 'Advanced Training Rollout', description: 'Launch "Advanced Prompting" and role-specific training workshops.', status: 'Not Started' },
     ],
   },
-  {
-    phase: 'Phase 3: Innovation & Expansion (Months 7-9)',
+    {
+    phase: 'Phase 3: Innovation & Expansion (Q2 2026)',
     icon: <Target className="h-6 w-6 text-green-500" />,
     initiatives: [
       { title: 'Predictive Analytics', description: 'Implement a pilot for predictive inventory management using AI forecasting.', status: 'Not Started' },
       { title: 'Customer Support Bot', description: 'Scope and develop an internal AI bot to handle common supplier and customer queries.', status: 'Not Started' },
       { title: 'Review & Strategize 2.0', description: 'Assess ROI from Phase 1 & 2 to plan the next wave of AI initiatives.', status: 'Not Started' },
-    ],
-  },
-  {
-    phase: 'Phase 4: Scaling & Optimization (Months 10-12)',
-    icon: <BrainCircuit className="h-6 w-6 text-red-500" />,
-    initiatives: [
-      { title: 'Scale Successful Pilots', description: 'Expand the most successful automation agents to other departments.', status: 'Not Started' },
-      { title: 'Advanced Analytics Dashboard', description: 'Create a centralized business intelligence dashboard using AI to provide real-time insights for leadership.', status: 'Not Started' },
-      { title: 'Explore Generative Media', description: 'Begin R&D on using generative AI for creating marketing video scripts and product design mockups.', status: 'Not Started' },
     ],
   },
 ];
@@ -57,7 +50,7 @@ const kpis = [
   { title: 'Training Completion', value: '40%', target: '100% on Basic modules', icon: <CheckCircle className="h-8 w-8 text-blue-500" /> },
 ];
 
-// ROI Calculator Component
+// ROI Calculator Component - REFACTORED
 const RoiCalculator = () => {
     // Part 1 Inputs
     const [timePerTask, setTimePerTask] = useState(5);
@@ -199,8 +192,17 @@ const RoiCalculator = () => {
 export default function StrategyPage() {
   return (
     <div className="py-8">
+       <section className="mb-12">
+        <Image
+          src="https://stellarlibrary.com/wp-content/uploads/Success-Story-FMCG-Wilsons-1024x341.jpg"
+          alt="Wilson Consumer Products promotional banner"
+          width={1024}
+          height={341}
+          className="w-full h-auto rounded-lg object-cover"
+        />
+      </section>
       <header className="mb-12 text-center">
-        <h1 className="text-5xl font-extrabold tracking-tight text-gradient">AI Strategy & Roadmap</h1>
+        <h1 className="text-5xl font-extrabold tracking-tight text-primary">AI Strategy & Roadmap</h1>
         <p className="mt-4 text-lg text-muted-foreground">
           Our vision and plan for integrating Artificial Intelligence to drive growth and efficiency.
         </p>
@@ -208,10 +210,10 @@ export default function StrategyPage() {
       
       <section className="mb-16 text-center">
         <Card className="inline-block p-8 bg-muted border-2 border-primary/20">
-          <Target className="h-12 w-12 text-red-500 mx-auto mb-4" />
+          <Target className="h-12 w-12 text-primary mx-auto mb-4" />
           <h2 className="text-2xl font-semibold mb-2">Our AI Mission</h2>
           <p className="max-w-3xl mx-auto text-lg">
-            To empower every d3 employee with AI tools and skills to enhance productivity, foster innovation, and deliver exceptional value to our partners and customers globally.
+            To empower every Wilson Consumer Products employee with AI tools and skills to enhance productivity, foster innovation, and deliver exceptional value to our partners and customers across New Zealand.
           </p>
         </Card>
       </section>
@@ -240,6 +242,7 @@ export default function StrategyPage() {
 
       <Separator className="my-12" />
 
+      {/* REORDERED: KPIs now follow Pillars */}
       <section className="mb-16">
         <h2 className="text-3xl font-semibold text-center mb-8">Measuring Our Success (KPIs)</h2>
         <div className="grid md:grid-cols-3 gap-8">
@@ -257,32 +260,20 @@ export default function StrategyPage() {
       <Separator className="my-12" />
       
       <section className="mb-16">
-        <h2 className="text-3xl font-semibold text-center mb-10">12 Month AI Road Map</h2>
-        <div className="relative max-w-3xl mx-auto pl-10">
-          <div className="absolute left-0 top-0 h-full w-0.5 bg-border" aria-hidden="true" />
-          {roadmapPhases.map((phase, index) => (
-            <div key={index} className="relative mb-12">
-              <div className="absolute -left-[2.8rem] top-1 w-10 h-10 bg-background flex items-center justify-center rounded-full border-2">
-                {React.cloneElement(phase.icon, { className: "h-6 w-6" })}
+        <h2 className="text-3xl font-semibold text-center mb-8">Implementation Roadmap</h2>
+        <div className="space-y-12">
+          {roadmapPhases.map((phase) => (
+            <div key={phase.phase}>
+              <div className="flex items-center gap-4 mb-6">{phase.icon}<h3 className="text-2xl font-medium">{phase.phase}</h3></div>
+              <div className="grid md:grid-cols-3 gap-6">
+                {phase.initiatives.map((item) => (
+                  <Card key={item.title} className="flex flex-col">
+                    <CardHeader><CardTitle>{item.title}</CardTitle></CardHeader>
+                    <CardContent className="flex-grow"><p className="text-muted-foreground">{item.description}</p></CardContent>
+                    <div className="p-6 pt-0"><Badge variant={item.status === 'Completed' ? 'default' : item.status === 'In Progress' ? 'outline' : 'secondary'}>{item.status}</Badge></div>
+                  </Card>
+                ))}
               </div>
-              <Card className="ml-4 border-2 hover:border-primary transition-colors">
-                <CardHeader>
-                  <CardTitle className="text-2xl">{phase.phase}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-4">
-                    {phase.initiatives.map(item => (
-                      <li key={item.title} className="flex items-start gap-3">
-                        {item.status === 'Completed' ? <CheckCircle className="h-5 w-5 text-green-500 mt-1 shrink-0" /> : item.status === 'In Progress' ? <Loader2 className="h-5 w-5 text-yellow-500 mt-1 shrink-0 animate-spin" /> : <Circle className="h-5 w-5 text-muted-foreground mt-1 shrink-0" />}
-                        <div>
-                          <h4 className="font-semibold">{item.title}</h4>
-                          <p className="text-sm text-muted-foreground">{item.description}</p>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
             </div>
           ))}
         </div>
@@ -342,7 +333,7 @@ export default function StrategyPage() {
                     <div className="space-y-2"><Label htmlFor="ai-win">What was your biggest AI win this month?</Label><Textarea id="ai-win" placeholder="e.g., 'Used ChatGPT to write a sales proposal, saving me 2 hours of work.'" /></div>
                     <div className="space-y-2"><Label htmlFor="ai-challenge">What was your biggest challenge or frustration with AI?</Label><Textarea id="ai-challenge" placeholder="e.g., 'The AI tool gave me incorrect information about a competitor.'" /></div>
                     <div className="space-y-2"><Label htmlFor="hours-saved">Approximately how many hours did you save this month using AI?</Label><Input id="hours-saved" type="number" placeholder="e.g., 8" /></div>
-                    <Button type="submit" className="w-full">Submit Report</Button>
+                    <Button type="submit" className="w-full">Submit Report to Paul Doyle</Button>
                 </form>
             </CardContent>
         </Card>

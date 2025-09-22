@@ -630,7 +630,7 @@ export default function AiAuditPage() {
   return (
     <div className="py-8">
       <header className="text-center mb-8">
-          <h1 className="text-5xl md:text-5xl font-extrabold tracking-tight text-primary">Unlock Your Productivity with AI.</h1>
+          <h1 className="text-5xl font-extrabold tracking-tight text-gradient">Unlock Your Productivity with AI.</h1>
       </header>
 
       <section className="text-center mb-8">
