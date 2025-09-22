@@ -2,8 +2,23 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image'; // Added Image import
+
+// Local component for a larger logo on this page only
+function LargeLogo() {
+  return (
+    <div className="flex items-center justify-center">
+      <Image
+        src="https://static.wixstatic.com/media/7b20bf_d38f5e6017364e9f8aefe9f318f9b4ad~mv2.png"
+        alt="d3 Logo"
+        width={120} // 3x original size
+        height={120} // 3x original size
+        className="object-contain"
+      />
+    </div>
+  );
+}
 
 export default function LoginPage() {
   return (
@@ -40,17 +55,15 @@ export default function LoginPage() {
         {/* 4. Main Content */}
         <main className="relative z-30 flex flex-col items-center text-center px-4">
           <div className="mb-8">
-            <Logo />
+            <LargeLogo />
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-shadow-[0_2px_15px_rgba(0,0,0,0.5)] leading-tight">
-            d3:
-            <br />
             <span className="text-blue-400">AI Intelligence Hub</span>
           </h1>
           
           <div className="mt-12">
-            <Link href="/dashboard">
+            <Link href="/login/email-password">
                  <Button size="lg" className="px-10 py-6 text-lg bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-500/30 transition-all duration-300 transform hover:scale-105">
                     Login
                 </Button>

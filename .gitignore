@@ -5,3 +5,4 @@
 node_modules/
 \n# Genkit local development files\n.genkit/
 \n# Example/Template Directories\nai-strategy-ex/\nprompt-library-ex/
+\n# Login Example Directory\nlogin-example/
