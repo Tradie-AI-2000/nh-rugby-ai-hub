@@ -27,7 +27,7 @@ export default function EmailPasswordLoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-gray-100 dark:bg-gray-900">
       <Card className="w-full max-w-md p-8 space-y-6">
         <CardHeader className="text-center">
-          <CardTitle className="text-3xl font-bold text-gradient">Login to d3 AI Hub</CardTitle>
+          <CardTitle className="text-3xl font-bold text-gradient">Login to NH Rugby AI Hub</CardTitle>
           <CardDescription>Enter your email and password to access your account.</CardDescription>
         </CardHeader>
         <CardContent>

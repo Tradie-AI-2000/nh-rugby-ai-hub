@@ -10,8 +10,8 @@ function LargeLogo() {
   return (
     <div className="flex items-center justify-center">
       <Image
-        src="https://static.wixstatic.com/media/7b20bf_d38f5e6017364e9f8aefe9f318f9b4ad~mv2.png"
-        alt="d3 Logo"
+        src="https://static.wixstatic.com/media/7b20bf_b9afb1293719453b8e27049e8551ac48~mv2.png"
+        alt="North Harbour Rugby Logo"
         width={120} // 3x original size
         height={120} // 3x original size
         className="object-contain"
@@ -37,7 +37,7 @@ export default function LoginPage() {
         {/* 1. Background Image with Pan Animation */}
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center z-0 opacity-25 bg-pan-animation"
-          style={{ backgroundImage: "url('https://placehold.co/1920x1080/000000/FFFFFF/png?text=d3')" }}
+          style={{ backgroundImage: "url('https://placehold.co/1920x1080/000000/FFFFFF/png?text=NHR')" }}
         />
 
         {/* 2. AI Tech Gradient Overlay */}

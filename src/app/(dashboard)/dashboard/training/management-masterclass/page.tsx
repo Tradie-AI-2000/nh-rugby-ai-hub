@@ -13,7 +13,7 @@ const workshopDetails = {
   location: 'Auckland Office - Boardroom A',
   instructor: 'Joe Ward (TradieAI)',
   audience: 'General Managers, Sales & Marketing Managers, Team Leads',
-  overview: 'This intensive two-hour masterclass is designed specifically for the leadership team at d3. It moves beyond the hype of AI and focuses on the practical application of AI strategy, risk management, and governance. The session will equip you with the frameworks needed to lead your teams, identify high-impact automation opportunities, and measure the ROI of our AI initiatives.'
+  overview: 'This intensive two-hour masterclass is designed specifically for the leadership team at NH Rugby. It moves beyond the hype of AI and focuses on the practical application of AI strategy, risk management, and governance. The session will equip you with the frameworks needed to lead your teams, identify high-impact automation opportunities, and measure the ROI of our AI initiatives.'
 };
 
 const agenda = [

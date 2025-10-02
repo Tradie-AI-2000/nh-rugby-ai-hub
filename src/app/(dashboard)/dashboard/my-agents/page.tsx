@@ -39,6 +39,12 @@ const agents = [
     description: 'Interact directly with a custom agent built and hosted on Google Cloud\'s Vertex AI Agent Builder.',
     icon: <Bot className="h-10 w-10 text-teal-500" />,
   },
+  {
+    id: 'echo-agent',
+    title: 'Echo Agent (Test)',
+    description: 'A simple agent for testing the A2A connection. It will echo back whatever you type.',
+    icon: <Bot className="h-10 w-10 text-gray-500" />,
+  },
 ];
 
 export default function MyAgentsPage() {

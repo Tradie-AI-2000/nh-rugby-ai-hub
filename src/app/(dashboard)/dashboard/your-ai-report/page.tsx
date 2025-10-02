@@ -295,7 +295,7 @@ export default function MyAiPage() {
                 {/* Submit Report Tab */}
                 <TabsContent value="report">
                     <Card className="mt-4">
-                        <CardHeader><CardTitle>Submit Your Monthly Feedback</CardTitle><CardDescription>This report will be sent to your line manager and/or Carey Burt.</CardDescription></CardHeader>
+                        <CardHeader><CardTitle>Submit Your Monthly Feedback</CardTitle><CardDescription>This report will be sent to your line manager and/or Adrian.</CardDescription></CardHeader>
                         <CardContent>
                           {submissionSuccess ? (
                               <div className="text-center py-10"><CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" /><h3 className="text-2xl font-semibold">Report Submitted!</h3><p className="text-muted-foreground">Thank you for your valuable feedback.</p></div>

@@ -7,8 +7,8 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "d3 AI Hub",
-  description: "AI Intelligence Hub for d3",
+  title: "North Harbour Rugby AI Hub",
+  description: "AI Intelligence Hub for North Harbour Rugby",
 };
 
 export default function RootLayout({

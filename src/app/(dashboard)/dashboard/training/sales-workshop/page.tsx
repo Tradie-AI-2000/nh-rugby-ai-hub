@@ -13,7 +13,7 @@ const workshopDetails = {
   location: 'Microsoft Teams (Online)',
   instructor: 'Joe Ward (TradieAI)',
   audience: 'Field Sales Reps, Sales & Marketing Managers',
-  overview: 'This is a highly practical, hands-on workshop designed for the d3 sales team. We will move beyond theory and dive directly into using AI tools to automate daily tasks, save significant time, and allow you to focus on what you do best: building relationships and selling. You will leave this session with actionable workflows you can implement immediately.'
+  overview: 'This is a highly practical, hands-on workshop designed for the NH Rugby sales team. We will move beyond theory and dive directly into using AI tools to automate daily tasks, save significant time, and allow you to focus on what you do best: building relationships and selling. You will leave this session with actionable workflows you can implement immediately.'
 };
 
 const agenda = [

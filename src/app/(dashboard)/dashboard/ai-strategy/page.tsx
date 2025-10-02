@@ -211,7 +211,7 @@ export default function StrategyPage() {
           <Target className="h-12 w-12 text-red-500 mx-auto mb-4" />
           <h2 className="text-2xl font-semibold mb-2">Our AI Mission</h2>
           <p className="max-w-3xl mx-auto text-lg">
-            To empower every d3 employee with AI tools and skills to enhance productivity, foster innovation, and deliver exceptional value to our partners and customers globally.
+            To empower every NH Rugby employee with AI tools and skills to enhance productivity, foster innovation, and deliver exceptional value to our partners and customers globally.
           </p>
         </Card>
       </section>

@@ -23,13 +23,13 @@ interface PromptsByLevel {
   Advanced: Prompt[];
 }
 
-// Mock data for prompts, tailored to d3 and structured by level
+// Mock data for prompts, tailored to NH Rugby and structured by level
 const promptLibrary: Record<string, PromptsByLevel> = {
   'Sales & Outreach': {
     Basic: [
       {
         title: 'New Supermarket Lead Email',
-        prompt: 'Draft a professional and concise introductory email to a category manager at a New Zealand supermarket we don\'t currently supply. Introduce d3, highlight our key product categories (health, beauty, and grocery), and suggest a brief 15-minute call next week to discuss how our range could benefit their stores.',
+        prompt: 'Draft a professional and concise introductory email to a category manager at a New Zealand supermarket we don\'t currently supply. Introduce NH Rugby, highlight our key product categories (health, beauty, and grocery), and suggest a brief 15-minute call next week to discuss how our range could benefit their stores.',
         roles: ['Field Sales Reps', 'Sales Manager'],
         icon: <Mail className="h-8 w-8 text-blue-500" />,
       },
@@ -45,7 +45,7 @@ const promptLibrary: Record<string, PromptsByLevel> = {
     Advanced: [
         {
         title: 'Generate Dynamic Sales Script',
-        prompt: 'You are a sales coach for d3. Below is our latest product sheet and a summary of our brand voice. [PASTE PRODUCT INFO & BRAND VOICE]. Now, create a flexible sales conversation script for our Field Sales Reps to introduce this new product. The script should include an engaging opener, 3 key benefit-driven talking points, and 3 different ways to handle potential objections (e.g., \'It\'s too expensive,\', \'We already have a similar product\').',
+        prompt: 'You are a sales coach for NH Rugby. Below is our latest product sheet and a summary of our brand voice. [PASTE PRODUCT INFO & BRAND VOICE]. Now, create a flexible sales conversation script for our Field Sales Reps to introduce this new product. The script should include an engaging opener, 3 key benefit-driven talking points, and 3 different ways to handle potential objections (e.g., \'It\'s too expensive,\', \'We already have a similar product\').',
         roles: ['Sales Manager', 'GMs'],
         icon: <Mic className="h-8 w-8 text-orange-500" />,
       },
@@ -89,7 +89,7 @@ const promptLibrary: Record<string, PromptsByLevel> = {
     Intermediate: [
       {
         title: 'Blog Post Outline',
-        prompt: 'Create a detailed outline for a blog post with the title: \'5 Health Food Trends to Watch in New Zealand this Year\'. Include an introduction, a section for each trend with 2-3 talking points, and a conclusion that subtly promotes relevant d3 products.',
+        prompt: 'Create a detailed outline for a blog post with the title: \'5 Health Food Trends to Watch in New Zealand this Year\'. Include an introduction, a section for each trend with 2-3 talking points, and a conclusion that subtly promotes relevant NH Rugby products.',
         roles: ['Marketing Manager'],
         icon: <Bot className="h-8 w-8 text-indigo-500" />,
       },

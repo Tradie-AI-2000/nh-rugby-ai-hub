@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { BookOpen, Wrench, Lightbulb, User, CheckCircle, Star, BrainCircuit, GraduationCap, BotIcon, ChartBarIcon } from 'lucide-react';
 
 // Mock user data - in a real app, this would come from an authentication context
-const userName = "Carey"; // Placeholder for the logged-in user's name
+const userName = "Adrian"; // Placeholder for the logged-in user's name
 
 const toolkitCards = [
     {
@@ -88,10 +88,10 @@ export default function DashboardWelcomePage() {
             />
             <div className="relative z-10">
                 <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                    Welcome to <span className="text-orange-500">d3's</span> AI Hub, {userName}!
+                    Welcome to <span className="text-blue-500">NH Rugby's</span> AI Hub, {userName}!
                 </h1>
                 <p className="mt-4 text-lg max-w-3xl mx-auto">
-                    This is your central portal for everything AI at d3 tape. Let's get started on transforming the way you work.
+                    This is your central portal for everything AI at NH Rugby. Let's get started on transforming the way you work.
                 </p>
             </div>
         </header>
