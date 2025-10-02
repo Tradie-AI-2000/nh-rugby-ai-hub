@@ -5,12 +5,12 @@ import { UserProfile } from "./types";
 
 // TODO: Add your own Firebase configuration from the Firebase console
 export const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyAbfWdDKwzkI6qwWKlOvMK400ufW1_Wkyg",
+  authDomain: "d3-ai-dashboard.firebaseapp.com",
+  projectId: "d3-ai-dashboard",
+  storageBucket: "d3-ai-dashboard.firebasestorage.app",
+  messagingSenderId: "851224006217",
+  appId: "1:851224006217:web:c9ec3ab6b985ba449cf998"
 };
 
 // Conditionally initialize Firebase

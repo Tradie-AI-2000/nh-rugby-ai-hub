@@ -47,7 +47,7 @@ export default function MyAgentsPage() {
       <header className="mb-12 text-center">
         <h1 className="text-5xl font-extrabold tracking-tight text-gradient">My Agents</h1>
         <p className="mt-5 text-lg text-muted-foreground max-w-3xl mx-auto">
-          Your personal library of custom AI agents, ready to automate your tasks.
+          Your personal library of custom AI agents, ready to automate your tasks.AI agents are the key to unlocking measurable business impact. When used effectively, they can simplify workflows, centralise data, automate tasks and help employees to make faster, smarter decisions.
         </p>
       </header>
 

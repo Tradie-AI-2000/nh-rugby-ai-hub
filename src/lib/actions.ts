@@ -4,6 +4,7 @@ import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db, getOrCreateUserProfile, updateUserProfile } from "./firebase";
 import { QuestionnaireSchema, type QuestionnaireData, UseCaseSchema, type UseCaseData } from "./types";
 import { allBadges } from "./badges";
+import { sendQuestionnaireEmail } from "./email"; // Import the email sending function
 
 export async function processQuestionnaire(data: QuestionnaireData) {
   console.log("Processing questionnaire submission...", data);
@@ -22,6 +23,15 @@ export async function processQuestionnaire(data: QuestionnaireData) {
     console.log("Adding document to Firestore...");
     const docRef = await addDoc(collection(db, "submissions"), parsedData.data);
     console.log("Document written with ID: ", docRef.id);
+
+    // Send email after successful Firestore submission
+    const emailResult = await sendQuestionnaireEmail(parsedData.data);
+    if (!emailResult.success) {
+      console.error("Failed to send questionnaire email:", emailResult.error);
+      // Decide whether to return an error here or just log it.
+      // For now, we'll let the Firestore submission succeed even if email fails.
+      // return { success: false, error: emailResult.error };
+    }
 
     // --- Gamification Logic: Awarding "First AI Report" badge ---
     const userId = "test-user-123"; // Placeholder for actual user ID
@@ -47,10 +57,10 @@ export async function processQuestionnaire(data: QuestionnaireData) {
       newBadges: newBadgesAwarded,
     };
   } catch (error) {
-    console.error("Error adding document to Firestore: ", error);
+    console.error("Error adding document to Firestore or sending email: ", error);
     return {
       success: false,
-      error: "Failed to save submission.",
+      error: "Failed to save submission or send email.",
     };
   }
 }

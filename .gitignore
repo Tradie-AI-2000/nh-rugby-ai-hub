@@ -3,6 +3,23 @@
 
 # Node modules
 node_modules/
-\n# Genkit local development files\n.genkit/
-\n# Example/Template Directories\nai-strategy-ex/\nprompt-library-ex/
-\n# Login Example Directory\nlogin-example/
+
+# Genkit local development files
+.genkit/
+
+# Example/Template Directories
+ai-strategy-ex/
+prompt-library-ex/
+
+# Login Example Directory
+login-example/
+
+# Firebase
+.firebase/
+firebase.json
+functions/node_modules/
+
+# Build artifacts
+src/lib/types.js
+src/lib/types.js.map
+
