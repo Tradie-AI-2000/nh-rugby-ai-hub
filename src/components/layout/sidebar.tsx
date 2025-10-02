@@ -1,10 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import { Home, Book, Bot, Lightbulb, Library, HardHat, Briefcase, FileText, BarChart, MessageSquare } from 'lucide-react';
+import { Home, Book, Bot, Lightbulb, Library, HardHat, Briefcase, FileText, BarChart, MessageSquare, Trophy } from 'lucide-react';
 import { Logo } from '@/components/logo';
 
 const navItems = [
   { href: '/dashboard', icon: Home, label: 'Home' },
+  { href: '/dashboard/rugby-intel-hub', icon: Trophy, label: 'Rugby Intel Hub' },
   { href: '/dashboard/ai-strategy', icon: Bot, label: 'AI Strategy' },
   { href: '/dashboard/process-analyser', icon: BarChart, label: 'AI Audit' },
   { href: '/dashboard/your-ai-report', icon: FileText, label: 'My AI' },

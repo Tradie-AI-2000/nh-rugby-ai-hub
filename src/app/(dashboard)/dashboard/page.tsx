@@ -17,6 +17,12 @@ const toolkitCards = [
         href: "/dashboard/your-ai-report",
     },
     {
+        icon: <User className="h-8 w-8 text-purple-500" />,
+        title: "Rugby Intel Hub",
+        description: "Your central portal for all North Harbour Rugby intelligence. Access performance data, training resources, and more.",
+        href: "/dashboard/rugby-intel-hub",
+    },
+    {
         icon: <BrainCircuit className="h-8 w-8 text-cyan-500" />,
         title: "AI Audit",
         description: "The starting point of our journey. This questionnaire helps us identify key automation opportunities in your daily workflows.",

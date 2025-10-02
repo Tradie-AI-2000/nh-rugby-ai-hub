@@ -16,7 +16,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import { PenSquare, BarChart, MessageSquare, Users, Briefcase, UserCog, FileText, Loader2, Zap, Clock, Wrench } from "lucide-react";
+import { PenSquare, BarChart, MessageSquare, Users, Briefcase, UserCog, FileText, Loader2, Zap, Clock, Wrench, GraduationCap, HeartPulse, DollarSign } from "lucide-react";
 import { getUseCases, firebaseConfig } from '@/lib/firebase';
 
 // Helper to map department names to icons
@@ -29,6 +29,14 @@ const departmentIcons: { [key: string]: React.ReactNode } = {
   "Product Management": <UserCog className="h-8 w-8 text-purple-500" />,
   "Field Operations": <Wrench className="h-8 w-8 text-orange-500" />,
   "Project Management": <Briefcase className="h-8 w-8 text-blue-500" />,
+  "Pro Teams": <Users className="h-8 w-8 text-red-500" />, // Reusing Users icon
+  "Performance": <BarChart className="h-8 w-8 text-green-500" />, // Reusing BarChart
+  "Academies": <GraduationCap className="h-8 w-8 text-orange-500" />, // New icon
+  "Player Welfare": <HeartPulse className="h-8 w-8 text-pink-500" />, // New icon
+  "Comms": <MessageSquare className="h-8 w-8 text-cyan-500" />, // Reusing MessageSquare
+  "Commercial": <DollarSign className="h-8 w-8 text-green-500" />, // New icon
+  "Community Rugby": <Users className="h-8 w-8 text-blue-500" />, // Reusing Users
+  "All Staff & Volunteers": <Users className="h-8 w-8 text-purple-500" />, // Reusing Users
   "default": <Briefcase className="h-8 w-8 text-gray-500" />,
 };
 
@@ -36,90 +44,131 @@ const getDepartmentIcon = (department: string) => {
   return departmentIcons[department] || departmentIcons.default;
 };
 
-// Mock data to be used as a fallback
 const mockUseCases = [
   {
-    id: 'mock-1',
-    title: "Streamlining Marketing Content Creation",
-    department: "Marketing",
-    summary: "Reduced content creation time by 30% by using ChatGPT to generate initial drafts for blog posts and social media campaigns.",
-    toolUsed: "3rd party tool",
-    hoursSaved: 5,
-    setupComplexity: "Easy",
+    id: 'nhr-1',
+    title: "AI-Powered Match Performance Analysis",
+    department: "Pro Teams",
+    summary: "Automate the analysis of match footage to track key performance indicators (KPIs) for individual players and the team, identifying tactical patterns and areas for improvement.",
+    toolUsed: "AI Agent",
+    hoursSaved: 12,
+    setupComplexity: "Hard",
     details: {
-      task: "Generate a steady stream of engaging content for various channels.",
-      problem: "The marketing team spent excessive time on initial drafting, limiting their ability to focus on higher-level strategy and content refinement.",
-      solution: "ChatGPT was adopted to produce first drafts of blog posts, social media updates, and email newsletters. The team then edited and refined this output, ensuring it met brand standards.",
+      task: "Manually review hours of match footage to extract player and team performance data.",
+      problem: "Time-consuming, prone to human error, difficult to identify subtle patterns across many games.",
+      solution: "An AI agent processes match video, automatically tags events (tackles, passes, rucks), tracks player movements, and generates detailed reports and visualizations of KPIs. LLM provides natural language summaries and actionable insights for coaches.",
     },
   },
   {
-    id: 'mock-2',
-    title: "Optimizing Sales Outreach",
-    department: "Sales",
-    summary: "Increased client response rates by 15% using an AI-powered email assistant to personalize outreach emails at scale.",
+    id: 'nhr-2',
+    title: "Personalized Player Development & Injury Prevention",
+    department: "Academies",
+    summary: "Develop AI models to analyze player training data, biomechanics, and historical injury records to create personalized training plans and predict injury risk, optimizing player load and recovery.",
+    toolUsed: "AI Agent",
+    hoursSaved: 7,
+    setupComplexity: "Hard",
+    details: {
+      task: "Manually track player load, recovery, and create generic training plans. React to injuries rather than proactively prevent them.",
+      problem: "Difficulty in tailoring training to individual player needs and proactively identifying injury risks.",
+      solution: "An AI agent ingests data from GPS trackers, heart rate monitors, and medical databases. It identifies individual player strengths/weaknesses, predicts injury likelihood based on current load, and suggests personalized training adjustments and recovery protocols.",
+    },
+  },
+  {
+    id: 'nhr-3',
+    title: "Automated Social Media Content Generation",
+    department: "Marketing",
+    summary: "Use an AI agent to generate engaging social media posts, match previews, and post-match summaries, tailored to NHR's brand voice and target audience.",
+    toolUsed: "AI Agent",
+    hoursSaved: 8,
+    setupComplexity: "Medium",
+    details: {
+      task: "Manually write social media content, often under tight deadlines, leading to repetitive messaging.",
+      problem: "Time-consuming content creation, difficulty maintaining consistent brand voice, and generating fresh ideas.",
+      solution: "An AI agent, fed with NHR's brand guidelines and match data, generates multiple options for social media posts, tweets, and short articles. It can also suggest relevant hashtags and imagery.",
+    },
+  },
+  {
+    id: 'nhr-4',
+    title: "Fan Engagement Chatbot",
+    department: "Comms",
+    summary: "Deploy a chatbot on the NHR website or social media to answer common fan questions about match schedules, ticket information, player stats, and club history.",
+    toolUsed: "3rd party tool",
+    hoursSaved: 6,
+    setupComplexity: "Medium",
+    details: {
+      task: "Manually answer repetitive questions from fans via email, phone, or social media.",
+      problem: "High volume of routine inquiries, leading to slow response times and staff overload.",
+      solution: "An AI-powered chatbot provides instant answers to FAQs, freeing up staff to handle more complex interactions. It can be integrated with club databases for real-time information.",
+    },
+  },
+  {
+    id: 'nhr-5',
+    title: "Automated Player Registration & Database Management",
+    department: "Operations",
+    summary: "Streamline the player registration process for community clubs and academies using AI to extract data from forms, verify information, and update central databases.",
+    toolUsed: "AI Agent",
+    hoursSaved: 18,
+    setupComplexity: "Hard",
+    details: {
+      task: "Manually process player registration forms, often paper-based or inconsistent digital formats, and enter data into multiple systems.",
+      problem: "Tedious, error-prone data entry, leading to delays and inaccuracies in player databases.",
+      solution: "An AI agent uses OCR to read registration forms, extracts key player information, validates it against existing records, and automatically updates the club's database. It flags discrepancies for human review.",
+    },
+  },
+  {
+    id: 'nhr-6',
+    title: "Sponsorship Proposal Generation",
+    department: "Commercial",
+    summary: "Use an AI agent to draft personalized sponsorship proposals for potential partners, incorporating NHR's value proposition, audience demographics, and specific partnership opportunities.",
     toolUsed: "AI Agent",
     hoursSaved: 10,
     setupComplexity: "Medium",
     details: {
-      task: "Send personalized emails to a large list of prospective clients.",
-      problem: "Manually personalizing hundreds of emails was time-consuming and led to generic messaging, resulting in low engagement.",
-      solution: "An AI email assistant was integrated with the CRM to automatically insert personalized details (like company name, role, or recent news) into email templates, allowing for mass-customization.",
+      task: "Manually create tailored sponsorship proposals, which is time-consuming and requires significant research for each potential partner.",
+      problem: "Inefficient proposal generation process, limiting the number of potential sponsors that can be approached.",
+      solution: "An AI agent, fed with NHR's sponsorship assets, audience data, and information about a potential sponsor, generates a customized draft proposal, highlighting relevant benefits and opportunities.",
     },
   },
   {
-    id: 'mock-4',
-    title: "Instant Access to Technical Manuals with RAG Agent",
-    department: "Field Operations",
-    summary: "A custom RAG agent allows field technicians to instantly query thousands of pages of technical manuals via a simple chat interface.",
-    toolUsed: "AI Agent",
-    hoursSaved: 8,
+    id: 'nhr-7',
+    title: "TensorFlow-Powered Skill Analysis & Feedback",
+    department: "Performance",
+    summary: "Utilize a custom TensorFlow model to analyze video footage of specific rugby skills (e.g., passing technique, kicking form, tackle execution). Provide objective, data-driven feedback to players and coaches for targeted improvement.",
+    toolUsed: "Custom ML Model (TensorFlow)",
+    hoursSaved: 9,
     setupComplexity: "Hard",
     details: {
-      task: "Provide technicians in the field with quick, accurate answers to questions about complex equipment and repair procedures.",
-      problem: "Technicians had to manually search through massive PDF manuals on their laptops, which was slow and often impossible without a data connection.",
-      solution: "Using the Google ADK agent platform, TradieAI built a custom RAG agent. All technical manuals were ingested into a vector database, allowing technicians to ask natural language questions and get instant, precise answers.",
+      task: "Manually review countless hours of training and match footage to identify subtle flaws or inconsistencies in player technique for specific skills. Provide subjective feedback.",
+      problem: "Manual analysis is time-consuming, subjective, and difficult to scale across many players or track granular progress over time.",
+      solution: "A TensorFlow model is trained on a large dataset of correctly and incorrectly executed rugby skills. Players' video footage is fed into the model, which then identifies deviations from optimal technique, quantifies performance metrics (e.g., body angle, ball release point), and generates visual overlays or textual feedback for coaches and players. This allows for highly targeted and objective skill development.",
     },
   },
   {
-    id: 'mock-5',
-    title: "Automated Social Media Content Calendar",
-    department: "Marketing",
-    summary: "A custom social media agent now generates a full week's worth of relevant, brand-aligned content and images for review.",
+    id: 'nhr-8',
+    title: "AI-Enhanced Internal Communications & Knowledge Base (Staff & Volunteers)",
+    department: "All Staff & Volunteers",
+    summary: "Integrate AI tools into an internal communications platform to automate message summarization, facilitate quick Q&A from a knowledge base, and draft internal announcements, specifically tailored to improve communication with both staff and the volunteer network.",
     toolUsed: "AI Agent",
-    hoursSaved: 6,
+    hoursSaved: 7,
     setupComplexity: "Medium",
     details: {
-      task: "Create and schedule a consistent stream of content for LinkedIn, Facebook, and Instagram.",
-      problem: "The marketing team struggled to consistently create fresh content, leading to gaps in the content calendar and a reactive, last-minute workflow.",
-      solution: "TradieAI built a content generation agent using the Google ADK agent platform. The agent is connected to our blog's RSS feed and industry news sites. Each morning, it generates three new post suggestions (with accompanying images) for review.",
+      task: "Manually sift through long communication threads, answer repetitive questions from staff and volunteers, and draft internal announcements from scratch. Information is often siloed, especially for the volunteer network.",
+      problem: "Information overload for staff and volunteers, difficulty finding specific information quickly, inconsistent messaging, and time spent on routine communication tasks. Volunteers often miss critical updates due to disparate communication channels.",
+      solution: "An AI agent monitors internal communication channels, automatically summarizes long discussions, and can answer common staff and volunteer questions by querying an internal knowledge base. It can also assist in drafting internal announcements, ensuring consistent tone and clarity, and can be configured to disseminate information effectively to different groups (staff vs. volunteers) within the platform. This improves efficiency and ensures all staff and volunteers have quick access to accurate information.",
     },
   },
   {
-    id: 'mock-6',
-    title: "Centralized Project Updates with Custom CMS",
-    department: "Project Management",
-    summary: "A new internal CMS was developed to track project milestones, replacing a complex system of spreadsheets and email chains.",
-    toolUsed: "other",
-    hoursSaved: 5,
+    id: 'nhr-9',
+    title: "AI-Driven Player Pathway Analysis & Retention",
+    department: "Academies",
+    summary: "Implement an AI system to analyze player data across school, club, and academy levels to identify factors influencing player progression, drop-out rates, and success. Provide insights to optimize player support, talent identification, and retention strategies within the province.",
+    toolUsed: "AI Agent",
+    hoursSaved: 12,
     setupComplexity: "Hard",
     details: {
-      task: "Keep all stakeholders informed about the status of multiple ongoing projects.",
-      problem: "Project information was scattered across emails, chat messages, and various spreadsheets. There was no single source of truth, leading to confusion and missed updates.",
-      solution: "A custom, lightweight Content Management System (CMS) was built to serve as a central hub for all projects. Project managers now update the status in one place, and an automated daily digest is emailed to all relevant stakeholders.",
-    },
-  },
-  {
-    id: 'mock-3',
-    title: "Enhancing Customer Support Responses",
-    department: "Customer Support",
-    summary: "Improved first-response time by 50% by implementing an AI system to categorize tickets and suggest answers for common questions.",
-    toolUsed: "3rd party tool",
-    hoursSaved: 4,
-    setupComplexity: "Easy",
-    details: {
-      task: "Respond to customer queries quickly and accurately.",
-      problem: "Agents were spending too much time on repetitive, simple questions and manually categorizing tickets, delaying responses to more complex issues.",
-      solution: "A system was built using Zendesk AI to auto-categorize incoming tickets. For common issues, it provides agents with pre-written, AI-suggested answers that they can quickly verify and send.",
+      task: "Manually track player progression, often relying on subjective assessments and limited data points. Struggle to understand why players drop out or succeed, making retention and talent identification difficult.",
+      problem: "Lack of comprehensive, data-driven insights into player pathways, leading to inefficient talent identification, high drop-out rates, and missed opportunities to support players effectively.",
+      solution: "An AI agent integrates data from various sources (school performance, club statistics, academy assessments, fitness metrics, demographic data, survey results). It uses predictive analytics to identify patterns associated with success and drop-out, flags players at risk, and suggests personalized intervention strategies (e.g., mentorship, specialized training, academic support). LLMs can generate reports summarizing key findings and recommendations for player development staff and coaches, aiming to retain talent within North Harbour Rugby.",
     },
   },
 ];

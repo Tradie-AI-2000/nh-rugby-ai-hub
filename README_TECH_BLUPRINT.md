@@ -165,7 +165,17 @@ If you encounter build errors after cloning or modifying the project, here are s
         npm install
         ```
 
-## 6. Deployment
+### Git Remote Management
+
+When cloning a project that was previously linked to a remote repository, ensure your local Git remote is correctly configured for the *new* repository.
+
+-   **Check Current Remote:** Use `git remote -v` to see where your local repository is currently configured to push and fetch from.
+-   **Update Remote:** If the remote points to an old or incorrect repository:
+    1.  Remove the old remote: `git remote remove origin`
+    2.  Add the new remote: `git remote add origin [NEW_REPOSITORY_URL]` (e.g., `https://github.com/your-org/your-new-project.git`)
+    3.  Push your changes, setting the upstream: `git push -u origin main` (or your primary branch name).
+
+## 8. Deployment
 
 This project is designed for deployment on [Vercel](https://vercel.com/), which offers excellent native support for Next.js applications and provides a seamless continuous deployment experience.
 
